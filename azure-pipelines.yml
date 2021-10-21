@@ -6,9 +6,17 @@
 pool:
   vmImage: ubuntu-latest
 
+variables:
+ GLOBAL_MYSECRET: $MY_MAPPED_ENV_VAR
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- bash: |
+  env:
+    MY_MAPPED_ENV_VAR: $(mySecret) # the recommended way to map to an env variable
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
@@ -18,3 +26,6 @@ steps:
   inputs:
     scriptSource: filePath
     scriptPath: "./demo_script.py"
+
+
+
