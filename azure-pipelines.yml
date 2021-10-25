@@ -30,5 +30,10 @@ steps:
   inputs:
     gitHubConnection: MyGithubRepo
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Trying to get pull request id
+      echo $(System.PullRequest.PullRequestId)
 
 
