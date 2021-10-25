@@ -3,24 +3,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-pool:
-  vmImage: ubuntu-latest
-
-variables:
- GLOBAL_MYSECRET: $MY_MAPPED_ENV_VAR
+pr:
+  - master
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- bash: |
-  env:
-    MY_MAPPED_ENV_VAR: $(mySecret) # the recommended way to map to an env variable
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 - task: PythonScript@0
   inputs:
     scriptSource: filePath
