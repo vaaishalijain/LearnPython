@@ -17,7 +17,6 @@ steps:
   env:
     MY_MAPPED_ENV_VAR: $(mySecret) # the recommended way to map to an env variable
 
-
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
@@ -26,6 +25,10 @@ steps:
   inputs:
     scriptSource: filePath
     scriptPath: "./demo_script.py"
+- task: GitHubComment@0
+  displayName: 'Writing GitHub comment'
+  inputs:
+    gitHubConnection: MyGithubRepo
 
 
 
